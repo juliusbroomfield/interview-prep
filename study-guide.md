@@ -223,8 +223,63 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 ## Linked List Algorithms
 
 - Cycle Detection (Floyd’s Cycle-Finding Algorithm): Determines if a linked list has a cycle.
+  
   - Time Complexity: O(n).
+
+- Merge Sorted Linked Lists: Merge two linked lists into one sorted list by comparing each head and splicing.
+  
+  - **Time Complexity:** O(n + m)
     
+    ```python
+    class Solution:
+        def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+            curr = dummy = ListNode()
+            while list1 and list2:               
+                if list1.val < list2.val:
+                    curr.next = list1
+                    list1, curr = list1.next, list1
+                else:
+                    curr.next = list2
+                    list2, curr = list2.next, list2
+                    
+            if list1 or list2:
+                curr.next = list1 if list1 else list2
+                
+            return dummy.next
+    ```
+  - Merge K Linked Lists
+    
+    - Time Complexity: O(n log k)
+      
+    - Auxillary Space: O(k)
+      
+    ```python
+    class Solution:
+        def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists:
+            return None
+    
+        # Initialize the heap with tuples (node value, node)
+        heap = [(l.val, l) for l in lists if l is not None]
+        heapq.heapify(heap)
+        
+        # Dummy node to start the final list
+        dummy = ListNode(-1)
+        current = dummy
+        
+        while heap:
+            # Get the smallest node from heap using its value for comparison
+            val, smallest = heapq.heappop(heap)
+            current.next = smallest
+            current = current.next
+            
+            # If this node has a next node, add its tuple to heap
+            if smallest.next:
+                heapq.heappush(heap, (smallest.next.val, smallest.next))
+        
+        return dummy.next
+     ```
+   
 - Reverse a Linked List:
   - Time Complexity: O(n).
     
@@ -445,7 +500,14 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 
 ## Math
 - Sum of Arithmetic Sequence: Can be used to find the missing number in a range of [1, N]
+  
    - Time Complexity: O(n)
+     
+   - Space Complexity: O(1)
+ 
+     - Another solution uses a set, but uses O(1) space
+       
+     - An in-place sorting solution would be O(1) space, but O(n log n) time complexity
      
    - **Code:**
      
@@ -458,7 +520,7 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 
 - Sieve of Eratosthenes: Used to find all primes smaller than a given number
   
-   - Time Complexity: O(sqrt(n) * log(log(n) + n))
+   - Time Complexity: the upper bound is O(n ^ 2), the tight upper bound is somewhere between O(n) and O(n ^ 2)
      
    - **Code:**
      
@@ -473,7 +535,20 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
                        numbers[multiple] = False
            
            return sum(numbers)
-   ```
+     ```
+- Euclidean Algorithm: Used to find the greatest common divisor
+  
+  - Time Complexity: O(log(min(a, b))
+    
+    - The brute force, checking every from number from min(a, b) to a is O(min(a, b))
+      
+  ```python
+  def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+  ```
+
 # Technical Knowledge (Python)
 
 ## Data Structures
