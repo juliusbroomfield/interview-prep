@@ -1,6 +1,4 @@
-# Interview Prep
-
-## Table of Contents
+# Study Guide
 
 - [Algorithms](#algorithms)
   - [Sorting Algorithms](#sorting-algorithms)
@@ -542,8 +540,8 @@ d.popleft()
 
 A specialized tree-based data structure that satisfies the heap property. **Python heaps are min-heaps**, you'll need to convert each number's sign and convert it back when retrieving.
 
-- **Insert**: \(O(\log n)\)
-- **Delete Max/Min**: \(O(\log n)\)
+- **Insert**: \(O(log n)\)
+- **Delete Max/Min**: \(O(log n)\)
 - **Get Max/Min**: \(O(1)\)
 
 ```python
