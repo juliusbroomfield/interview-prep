@@ -221,7 +221,7 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
    - Time Complexity: O(n)
      
    - **Simpler Approach:** Create palidromes by expanding from center
-      - Time Complexity: O(n)
+      - Time Complexity: O(n ^ 2)
 
 - Anagrams?: Check if two strings are anagrams by counting numbers of each character. Can use a hashmap or array (by using ASCII value), either way both are O(1) space - alphabet only has 26 letters  
 
