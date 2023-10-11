@@ -702,7 +702,7 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 
 - **Description**: Solves problems recursively, if a partial solution doesn't work at any step, backtrack to a previous step and try a different path. Used in permutations, combinations, mazes, N-Queens, etc
   
-   - **Time Complexity**: Time complexity is usually O(b^d), where b is the branching factor (how many options there are), and d is the max depth of recursion.
+   - **Time Complexity**: Time complexity is usually O(b^d), where b is the branching factor (how many options there are), and d is the max depth of recursion (usually the length of the iterable).
      
    - **Permutations**:
      
