@@ -15,7 +15,7 @@
   - [Threading](#threading)
   - [Hashing](#hashing)
 - [Behavioral Questions](#behavioral-questions)
-
+- [General Guide](#general-guide)
 ---
 
 # Algorithms
@@ -218,7 +218,8 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
    - **Simpler Approach:** Create palidromes by expanding from center
       - Time Complexity: O(n ^ 2)
 
-- Anagrams?: Check if two strings are anagrams by counting numbers of each character. Can use a hashmap or array (by using ASCII value), either way both are O(1) space - alphabet only has 26 letters  
+- Anagrams?:
+  - Check if two strings are anagrams by counting numbers of each character. Can use a hashmap or array (by using ASCII value), either way both are O(1) space - alphabet only has 26 letters  
 
 ## Linked List Algorithms
 
@@ -247,6 +248,7 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
                 
             return dummy.next
     ```
+    
   - Merge K Linked Lists
     
     - Time Complexity: O(n log k)
@@ -674,6 +676,7 @@ Threading is one of the ways to achieve multitasking. It allows a program to run
 
 ## Hashing
 Hashing is a technique used to store and retrieve values based on a key. The key is processed through a hash function to produce an index where the value will be stored or retrieved from.
+
 ```python
 hash()
 ```
@@ -701,6 +704,7 @@ Python uses open addressing, specifically quadratic probing, for hash collisions
   -  For integers, the hash is the integer itself. Keep this in mind when making a hashmap of only integers, you can just use a list.
 
 This code uses linear probing, which isn't really the best because groups of consec. slots can get filled (clustering).
+
 ```python
 class MyHashMap:
 
@@ -759,3 +763,69 @@ For a hash table to be efficient, the load factor (number of entries divided by 
 - How have you met a customer's needs in the past?
 - What do you like about technology and why?
 - Explain recursion to a child
+
+# General Guide
+
+1. Clarify question
+  - Ask about:
+    - Case-sensitive?
+    - Number ranges?
+    - ASCII only?
+    - Sorted, unsorted?
+    - Duplicates? How to Handle?
+    - Only ints, floats?
+    - Only positive? Negative? Increasing? Non-Decreasing?
+    - How to handle empty, invalid, or null?
+      
+2. Explain Approach
+   
+  - "Intuitive Approach"
+    
+    - Analyze time and space complexity
+      
+    - Brute force is sometimes only solution (backtracking, greedy, etc)
+      
+  - "Optimized Approach"
+    
+    - Probably an entirely different approach. Run through list of data structures, usually:
+      
+      1. Hashmaps
+      2. Stacks & Queues (Lists & Doubly-Linked List)
+      3. Sets / Caches (Memoization)
+      4. Heaps / Trees
+         
+    - Break down time and space complexity, sometimes you'll only be able to optimize on space (usually an in-place solution)
+    
+3. Pseudocode
+   
+   - You can do this while explaining the approach
+     
+   - Psuedocode throgh text (like a comment) or whiteboard - Codility has a whiteboard
+     
+   - Make unit tests during this time
+     
+     - Try to break the code; **anything** within constraints is fair game (null cases, empty array, max int, etc)
+     
+   - Quickly trace through pseudocode before you start coding; you shouldn't be straying from the pseudocode once you start coding
+
+5. Coding
+   
+   - Prioritize readibility and follow closely to the pseudocode
+     
+   - Try to use helper functions if it simplfies the code, might not need to fill it out in the end
+     
+   - Usually will have a blank IDE to work with, a good starting point is:
+     
+   ```python
+   IMPORTS 
+   '''
+   TEST CASES HERE
+   PSEUDOCODE HERE
+   '''
+   def solution():
+     return answer
+
+   print(solution(test_cases))
+   ```
+
+   - Trace through the code one last time before running the code; running the code is like submitting
