@@ -1,4 +1,4 @@
-# interview-prep
+# Algorithms
 
 ## Sorting Algorithms:
 
@@ -26,7 +26,9 @@
 ## Searching and Selection Algorithms:
 
 - Binary Search: Searches a sorted array by dividing it in half repeatedly.
+  
   - Time Complexity: O(log n).
+    
   - Code:
     
     ```python
@@ -41,18 +43,65 @@
   
           return -1
     ```
+    
 - Linear Search: Scans each element in sequence.
+  
   - Time Complexity: O(n).
-- QuickSelect: Finds the k-th smallest element using partitioning logic of QuickSort.
+    
+- QuickSelect: Finds the k-th smallest element using partitioning logic of QuickSort
+  
   - Dutch National Flag Problem: Sort an array of 0s, 1s, and 2s.
+    
   - Time Complexity: Average O(n), Worst O(n^2).
 
+- Exponential Search: Best search when the array size is unknown
+  
+  - Time Complexity: O(log n)
+    
+  ```python
+  def exponential_search(array, n, x):
+     low = 0
+     high = n - 1
+   
+     while low <= high:
+       mid = low + (high - low) // 2
+       if array[mid] == x:
+         return mid
+       elif array[mid] > x:
+         high = mid - 1
+       else:
+         low = mid + 1
+   
+     return -1
+   ```
+  
 ## Array Algorithms:
 
 - Kadane’s Algorithm: Finds the contiguous sub-array with the largest sum.
   - Time Complexity: O(n).
-- Two Pointer Technique: Used to search for a pair in a sorted array.
-  - Time Complexity: O(n).
+- Bit Manipulation: Techniques to manipulate individual bits in numbers; used to find single numbers in arrays, counting set bits, et
+  
+   - **Find Single Number in Array:**
+     
+     ```python
+     class Solution:
+       def singleNumber(self, nums: List[int]) -> int:
+           mask = 0
+           for n in nums: mask ^= n
+           return mask
+     ```
+
+## String Algorithms:
+_Remember strings are immutuable, usually want to convert to lists -> O(n)_
+
+- Manacher's Algorithm: Finds the longest palindromic substring in a string (Don't use this; simpler code below).
+  
+   - Time Complexity: O(n)
+     
+   - **Simpler Approach:** Create palidromes by expanding from center
+      - Time Complexity: O(n)
+
+- Anagrams?: Check if two strings are anagrams by counting numbers of each character. Can use a hashmap or array (by using ASCII value), either way both are O(1) space - alphabet only has 26 letters  
 
 ## Linked List Algorithms
 - Cycle Detection (Floyd’s Cycle-Finding Algorithm): Determines if a linked list has a cycle.
@@ -119,9 +168,35 @@
             traverse(root)
             return array
     ```
+   - **BFS Code:**
+     
+     ```python
+     class Solution:
+       def levelOrder(self, root: TreeNode) -> List[List[int]]:
+           output = []
+           queue = deque()
+           if root:
+               queue.append(root)
+   
+           while q:
+               output = []
+   
+               for i in range(len(q)):
+                   node = q.popleft()
+                   val.append(node.val)
+                   if node.left:
+                       q.append(node.left)
+                   if node.right:
+                       q.append(node.right)
+               output.append(val)
+     
+           return output
+     ```
 
 - **Balanced Binary Tree Check**: Checks if a binary tree is balanced (difference in heights of left and right subtrees is not more than 1 for all nodes).
-  - **Time Complexity**: O(n)   
+  
+  - **Time Complexity**: O(n)
+    
     ```python
     class Solution:
         def isBalanced(self, root: Optional[TreeNode]) -> bool:
@@ -141,6 +216,7 @@
     ```
 
 - **Valid BST**: Checks if BST is valid (smaller elements on the left, bigger elements on the right).
+  
     ```python
     class Solution:
         def isValidBST(self, root: Optional[TreeNode]) -> bool:
@@ -162,8 +238,11 @@
 ## Backtracking
 
 - **Description**: Solves problems recursively, if a partial solution doesn't work at any step, backtrack to a previous step and try a different path. Used in permutations, combinations, mazes, N-Queens, etc
+  
    - **Time Complexity**: Time complexity is usually O(b^d), where b is the branching factor (how many options there are), and d is the max depth of recursion.
+     
    - **Permutations**:
+     
      ```python
      class Solution:
         def permute(self, nums: List[int]) -> List[List[int]]:
@@ -184,9 +263,77 @@
     
             return permutations
      ```
+  - **Combinations (Letter Combinations of a Phone Number):**
+    
+  ```python
+     class Solution:
+       def letterCombinations(self, digits: str) -> List[str]:
+           mapping = {
+               '2': ('a', 'b', 'c'),
+               '3': ('d', 'e', 'f'),
+               '4': ('g', 'h', 'i'),
+               '5': ('j', 'k', 'l'),
+               '6': ('m', 'n', 'o'),
+               '7': ('p', 'q', 'r', 's'),
+               '8': ('t', 'u', 'v'),
+               '9': ('w', 'x', 'y', 'z')
+           }
+   
+           combinations = []
+   
+           def dfs(current = "", i = 0):
+   
+               if i == len(digits): combinations.append(current)
+   
+               else:
+   
+                   for letter in mapping[digits[i]]:
+                       current += letter
+                       dfs(current, i + 1)
+                       current = current[:-1]
+       
+           dfs()
+   
+           if len(combinations) == 1 and not combinations[0]: return []
+   
+           return combinations
+  ```
+
+## Math
+- Sum of Arithmetic Sequence: Can be used to find the missing number in a range of [1, N]
+   - Time Complexity: O(n)
+     
+   - **Code:**
+     
+    ```python
+    class Solution:
+       def missingNumber(self, nums: List[int]) -> int:
+           n = len(nums)
+           return ((n * (n + 1)) // 2) - sum(nums)
+    ```
+
+- Sieve of Eratosthenes: Used to find all primes smaller than a given number
+  
+   - Time Complexity: O(sqrt(n) * log(log(n) + n))
+     
+   - ** Code:**
+     
+     ```python
+     class Solution:
+       def countPrimes(self, n: int) -> int:
+           if n <= 2: return 0
+           numbers = [False, False] + [True] * (n - 2)
+           for p in range(2, int(sqrt(n)) + 1):
+               if numbers[p]:
+                   for multiple in range(p * p, n, p):
+                       numbers[multiple] = False
+           
+           return sum(numbers)
+   ```
+# Technical Knowledge (Python)
 
 
-## Behavioral Questions
+# Behavioral Questions
 - Tell me about yourself?
 - How do you work in a group?
 - What do you do when you have a disagreement with a team member?
