@@ -80,7 +80,7 @@
       
     - Space Complexity: O(n), recursive stack
       
-   ```
+   ```python
    def merge_sort(array_to_sort, start_index=0, end_index=None):
        if end_index is None:
            end_index = len(array_to_sort) - 1
@@ -140,7 +140,11 @@
 
 ## Searching and Selection Algorithms:
 
-- Binary Search: Searches a sorted array by dividing it in half repeatedly.
+- **Binary Search:** Searches a sorted array by dividing it in half repeatedly.
+
+  - If you can eliminate half of your remaining possibilties in each step, you can likely use binary search
+ 
+  - If the problem is about finding a specific point in a continous range, like finding square root, you can likely use binary search
   
   - Time Complexity: O(log n).
     
@@ -156,8 +160,49 @@
   
           return -1
     ```
+
+  - **Practical Example:**
     
-- Linear Search: Scans each element in sequence.
+    - There are _n_ piles of apples with varying amounts. Given _h_ hours, determine the minimum speed at which all bananas can be eaten, where in one hour, up to a certain number of bananas can be eaten from one pile. If a pile has fewer bananas than the chosen speed, the rest of the hour goes unused.
+   
+    - The brute force uses tries every possible speed, from 1 to the maximum number of apples in the pile
+    
+      - Time Complexity: O(n * m)
+     
+        ```python
+        for i in range(1, max(piles) + 1):
+            result = 0
+            for banana in piles:
+                result += math.ceil(banana / i)
+            if result <= hours: return i
+        ```
+        
+    - The optimal solution uses binary search for this instead
+   
+    - Time Complexity O(n log m)
+   
+      ```python
+      class Solution:
+        def minEatingSpeed(self, piles: List[int], hours: int) -> int:
+        
+          # Helper function to calculate total hours required to eat all bananas at a given speed
+          def required_hours(speed):
+              return sum(math.ceil(pile / speed) for pile in piles)
+          
+          low, high = 1, max(piles)
+          
+          # Binary search to find the minimum speed
+          while low <= high:
+              mid = (low + high) // 2
+              if required_hours(mid) <= hours:
+                  high = mid - 1
+              else:
+                  low = mid + 1
+                  
+          return low
+        ```
+    
+- **Linear Search:** Scans each element in sequence.
   
    - Time Complexity: O(n)
      
@@ -167,14 +212,8 @@
    
    element in arr # Returns False
    ```
-    
-- QuickSelect: Finds the k-th smallest element using partitioning logic of QuickSort
-  
-  - Dutch National Flag Problem: Sort an array of 0s, 1s, and 2s.
-    
-  - Time Complexity: Average O(n), Worst O(n^2).
-
-- Exponential Search: Best search when the array size is unknown
+   
+- **Exponential Search:** Best search when the array size is unknown
   
   - Time Complexity: O(log n)
     
@@ -189,16 +228,84 @@
       # Call binary search for the found range
       return binary_search(arr, i//2, min(i, len(arr)), x)
    ```
+    
+- **Quick Select:** Finds the k-th smallest element using partitioning logic of QuickSort
+  
+  - Dutch National Flag Problem: Sort an array of 0s, 1s, and 2s.
+    
+  - Time Complexity: Average O(n), Worst O(n^2).
+
+- **Boyer-Moore Voting Algorithm (Majority Element):** Given an array, find the element that appears more than **[n / 2]** times
+
+  - Iterate through an array, if the counter is zero, we set the current element as the candidate. If the next element matches the candidate, we increment the counter; otherwise, we decrement it. The majority element will be the final candidate
+
+    - The brute force for this (usually a hashmap to keep count) has linear runtime but takes O(n) space
+    
+  - Time Complexity: O(n)
+ 
+  - Space Complexity: O(1)
+
+
+    ```python
+    result, count = 0, 0
+
+    for n in nums:
+      if count == 0:
+        result = n
+      count += (1 if n == result else -1)
+
+    return result
+    ```
+
+    - Given an array, find all elements (there can only be up to 2) that appear more than **[n / 3]** times
+   
+      - Realistically, this uses the same algorithm, just with two candidates and two counters
+     
+      - Time Complexity: O(n)
+     
+      - Space Complexity: O(1)
+
+     ```python
+     def majorityElement(nums):
+      if not nums:
+          return []
+  
+      count1, count2, candidate1, candidate2 = 0, 0, 0, 1
+  
+      for n in nums:
+          if n == candidate1:
+              count1 += 1
+          elif n == candidate2:
+              count2 += 1
+          elif count1 == 0:
+              candidate1, count1 = n, 1
+          elif count2 == 0:
+              candidate2, count2 = n, 1
+          else:
+              count1, count2 = count1 - 1, count2 - 1
+  
+      return [n for n in (candidate1, candidate2)
+                  if nums.count(n) > len(nums) // 3]
+      ```
+       
   
 ## Array Algorithms:
 
-- Kadane’s Algorithm: Finds the contiguous sub-array with the largest sum.
+- **Kadane’s Algorithm:** Finds the contiguous sub-array with the largest sum.
+
+  - Basically, we have a sliding window sum (rolling sum), and if the current number is greater than that sum, then we set the sum to that greater number
+    
+    - This really only makes sense if there are negative numbers in the array 
   
-  - Time Complexity: O(n).
+  - Time Complexity: O(n)
+ 
+    - The brute force involves checking every possible subarray and has a O(n ^ 3) runtime
     
 - Bit Manipulation: Techniques to manipulate individual bits in numbers; used to find single numbers in arrays, counting set bits, et
   
    - **Find Single Number in Array:**
+ 
+     - Time Complexity: O(n)
      
      ```python
      class Solution:
@@ -208,18 +315,108 @@
            return mask
      ```
 
+- **N - Sum:**
+  
+  - 2 Sum: Find two numbers that equal the target
+    
+    - This can be done really easily using a hashmap (or set, but requires 2 passes)
+   
+      - Time Complexity: O(n)
+     
+        - Brute force would be to find every combination, which is O(n ^ 2)
+       
+  - 3 Sum: Find three numbers that equal the target
+ 
+    -  This can be quickly down by sorting the array, iterating through and choosing each number as a candidate, and then using two pointers to narrow down the other two candidate numbers
+   
+      - This approaches also allows the triplets smaller than target, or the triplet closest to the target
+   
+      -  Time Complexity: O(n ^ 2)
+     
+  - 4 Sum: Find four numbers that equal the target
+ 
+    -  This is the same approach as 3 Sum, except we'll use 2 nested for loops this time
+   
+      - It's the same method for any N sum, we didn't use it for 2 Sum because sorting the list (O (log n)) would've taken longer than using a hashmap (O (n))
+   
+      - Time Complexity: O(n ^ 3)
+   
+        - A general time complexity formula using this algorithm is O(n ^ (N - 1)) where N is the N in N - Sum
+       
+        - The auxillary space is O(1) for all solutions except 2 Sum
+     
+
 ## String Algorithms:
 _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 
-- Manacher's Algorithm: Finds the longest palindromic substring in a string (Don't use this; simpler code below).
+- Palidromes: Words that reads the same forward and backward
+
+  - This could be done iteratively using two pointers
+ 
+    - Time Complexity: O(n)
+   
+    ```python
+    def is_palindrome(s):
+      left, right = 0, len(s) - 1
+      while left < right:
+          if s[left] != s[right]:
+              return False
+          left += 1
+          right -= 1
+      return True
+    ```
+
+  - Can also be done recurisvely, however the space complexity is O(n) due to call stack
+  ```python
+  def is_palindrome(s):
+    if len(s) <= 1:
+        return True
+    if s[0] != s[-1]:
+        return False
+    return is_palindrome(s[1:-1])
+  ```
+
+- Manacher's Algorithm: Finds the longest palindromic substring in a string (This is too complicated to use in interview; simpler approach below).
   
    - Time Complexity: O(n)
+ 
+   - Space Complexity: O(n)
      
-   - **Simpler Approach:** Create palidromes by expanding from center
+   - **Simpler Approach:** Create palidromes by expanding from center; keep track of the longest palidrome you find (each letter can be considered a palidrome)
+ 
+      - Manacher's Algorithm is uses this approach but uses previously computed palidrome radii to skip calculations 
+     
       - Time Complexity: O(n ^ 2)
+    
+      - Space Complexity: O(1)
 
-- Anagrams?:
-  - Check if two strings are anagrams by counting numbers of each character. Can use a hashmap or array (by using ASCII value), either way both are O(1) space - alphabet only has 26 letters  
+- Anagrams:
+  
+  - Check if two strings are anagrams by counting occurances of each character
+    
+    - Can use a hashmap or array (by characters using ASCII value), either way both are O(1) space - alphabet only has 26 letters
+      
+    - Time Complexity: O(n)
+
+      ```python
+      def anagrams(s1, s2):
+        if len(s1) != len(s2):
+            return False
+        
+        counts = [0] * 26  # for 'a' to 'z'
+        
+        for char in s1:
+            counts[ord(char) - ord('a')] += 1
+        
+        for char in s2:
+            counts[ord(char) - ord('a')] -= 1
+            if char_count[ord(char) - ord('a')] < 0:
+                return False
+        
+        return sum(counts) == 0
+        ```
+      
+  - Can also sort the arrays and compare if they are equivalent. However, this has O(n log n) runtime (and O(n) space if using built-in sort)
 
 ## Linked List Algorithms
 
