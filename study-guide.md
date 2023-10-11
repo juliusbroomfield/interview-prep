@@ -301,7 +301,7 @@
  
     - The brute force involves checking every possible subarray and has a O(n ^ 3) runtime
     
-- Bit Manipulation: Techniques to manipulate individual bits in numbers; used to find single numbers in arrays, counting set bits, et
+- Bit Manipulation: Techniques to manipulate individual bits in numbers; used to find single numbers in arrays, counting set bits, etc
   
    - **Find Single Number in Array:**
  
@@ -329,15 +329,15 @@
  
     -  This can be quickly down by sorting the array, iterating through and choosing each number as a candidate, and then using two pointers to narrow down the other two candidate numbers
    
-      - This approaches also allows the triplets smaller than target, or the triplet closest to the target
+      - This approaches also works for triplets smaller than target, or the triplet closest to the target
    
       -  Time Complexity: O(n ^ 2)
      
   - 4 Sum: Find four numbers that equal the target
  
-    -  This is the same approach as 3 Sum, except we'll use 2 nested for loops this time
+    -  This is the same approach as 3 Sum, except we'll use 2 nested for-loops this time
    
-      - It's the same method for any N sum, we didn't use it for 2 Sum because sorting the list (O (log n)) would've taken longer than using a hashmap (O (n))
+      - It's the same method for any N-sum, we didn't use it for 2-Sum because sorting the list (O (n log n)) would've taken longer than using a hashmap (O (n))
    
       - Time Complexity: O(n ^ 3)
    
