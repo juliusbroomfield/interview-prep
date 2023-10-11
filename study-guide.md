@@ -179,20 +179,15 @@
   - Time Complexity: O(log n)
     
   ```python
-  def exponential_search(array, n, x):
-     low = 0
-     high = n - 1
-   
-     while low <= high:
-       mid = low + (high - low) // 2
-       if array[mid] == x:
-         return mid
-       elif array[mid] > x:
-         high = mid - 1
-       else:
-         low = mid + 1
-   
-     return -1
+  def exponential_search(arr, x):
+      if arr[0] == x:
+          return 0
+  
+      i = 1
+      while i < len(arr) and arr[i] <= x: i *= 2
+  
+      # Call binary search for the found range
+      return binary_search(arr, i//2, min(i, len(arr)), x)
    ```
   
 ## Array Algorithms:
@@ -504,6 +499,17 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 - **Search**: Average \(O(1)\), worst-case \(O(n)\)
 
 ### Tuple (Immutable List)
+- Will need to use these instead of lists as keys in hashmaps and elements in sets (mutables aren't hashable)
+- Good to use these when the list elements aren't changing, it'll give you slightly faster search times (a tuple isn't an array, there is already a Python implementation of an array)
+    ```python
+    import array
+    
+    # Create an array of integers
+    arr = array.array('i', [1, 2, 3, 4, 5])  # 'i' denotes integer type
+    
+    # A tuple
+    tup = (10, 20, 30, 40, 50)
+    ```
 
 ### String (Immutable Sequence of Characters)
 
