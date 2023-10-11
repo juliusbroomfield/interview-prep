@@ -544,7 +544,7 @@ d.popleft()
 
 ### Heap (Binary Heap)
 
-A specialized tree-based data structure that satisfies the heap property. **Python heaps are min-heaps**, you'll need to convert each number's sign and convert it back when retrieving.
+A complete binary tree that satisfies the heap property. **Python heaps are min-heaps**, you'll need to convert each number's sign and convert it back when retrieving.
 
 - **Insert**: \(O(log n)\)
 - **Delete Max/Min**: \(O(log n)\)
@@ -618,6 +618,49 @@ hash()
     - **Quadratic Probing**: If a collision occurs at index `i`, check `i+1^2`, `i+2^2`, etc.
     
     - **Double Hashing**: Use another hash function to decide the next slot.
+      
+### Python Implementation (Create Your Own Hashmap)
+Python uses open addressing, specifically quadratic probing, for hash collisions
+
+- Integers
+  -  For integers, the hash is the integer itself. Keep this in mind when making a hashmap of only integers, you can just use a list.
+
+This code uses linear probing, which isn't really the best because groups of consec. slots can get filled (clustering).
+```python
+class MyHashMap:
+
+    def __init__(self):
+        self.size = 1000
+        self.table = [None] * self.size
+
+    def _hash(self, key):
+        return key % self.size
+
+    def put(self, key: int, value: int) -> None:
+        index = self._hash(key)
+        # If the slot is already occupied, look for the next available slot
+        while self.table[index] is not None:
+            if self.table[index][0] == key:  # If key already exists, break to overwrite its value
+                break
+            index = (index + 1) % self.size  # Move to the next slot
+        self.table[index] = (key, value)
+
+    def get(self, key: int) -> int:
+        # PSEUDOCODE:
+        # 1. Compute the index using the hash function.
+        # 2. If the slot is occupied but doesn't match the key, move to the next slot.
+        # 3. If a slot with the given key is found, return its value.
+        # 4. If an empty slot is found or we've checked the whole table, return -1.
+        pass
+
+    def remove(self, key: int) -> None:
+        # PSEUDOCODE:
+        # 1. Compute the index using the hash function.
+        # 2. If the slot is occupied but doesn't match the key, move to the next slot.
+        # 3. If a slot with the given key is found, set it to a DELETED marker (to maintain the probe sequence).
+        # 4. If an empty slot is found or we've checked the whole table, do nothing.
+        pass
+```
 
 ### Dynamic Resizing
 
