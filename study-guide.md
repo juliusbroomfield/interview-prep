@@ -223,13 +223,57 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
 
 ## Linked List Algorithms
 
-- Cycle Detection (Floyd’s Cycle-Finding Algorithm): Determines if a linked list has a cycle.
+- Fast and Slow (Turtoise and Hare) Pointer: Used to detect cycles (cycle algorithm below), middle of linked list, finding kth element from end, intersection point of two lists, etc
+
+  - Middle of Linked List:
+ 
+    - Time Complexity: O(n)
+      
+    - Space Complexity: O(1)
+      
+      - Realistically, the "brute force" solution of calculating the length first is still O(n), but this lets you do it one pass
+
+  ```python
   
-  - Time Complexity: O(n).
+  class Solution:
+    def middleNode(self, head):
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+  ```
+
+- Cycle Detection (Floyd’s Cycle-Finding Algorithm): Determines if a linked list has a cycle.
+
+  - The hashset solution to this is also O(n), but uses O(n) space as well
+  
+  - Time Complexity: O(n)
+    
+  - Space Complexity: O(1)
+
+  ```python
+  class Solution:
+    def hasCycle(self, head: ListNode) -> bool:
+        if head is None:
+            return False
+        slow = head
+        fast = head.next
+        while slow != fast:
+            if fast is None or fast.next is None:
+                return False
+            slow = slow.next
+            fast = fast.next.next
+        return True
+  ```
 
 - Merge Sorted Linked Lists: Merge two linked lists into one sorted list by comparing each head and splicing.
   
   - **Time Complexity:** O(n + m)
+    
+    - This is the same as saying O(max(n, m))
+      
+      - O(n - m) is not the same as O(min(n, m)) though
     
     ```python
     class Solution:
@@ -323,11 +367,31 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
     ```
     
 - Find Intersection Point of Two Lists: Using length difference or hash table.
+  
+  - Using length difference:
+    
+    - Calculate lengths of both lists, then align the points so that they have an equal number of nodes ahead, and the move them forward to find the intersection
+      
   - Time Complexity: O(m + n), where m and n are lengths of two lists.
+
+- Sorting Linked Lists
+  
+  - The bottom-up approach for merge sort (merge sort is much better than quicksort here) starts by splitting the problem into the smallest subproblem and iteratively merge the result to solve the original problem.
+ 
+    - First, the list is split into sublists of size 1 and merged iteratively in sorted order. The merged list is solved similarly.
+
+    - The process continues until we sort the entire list
+    
+  - Time Complexity: O(n log n)
+    
+  - Space Complexity: O(1)
+    
+    - The top-down approach is O(log n)    
 
 ## Tree Algorithms
 
 - **Tree Traversals**: Inorder, Preorder, Postorder, Level order (BFS).
+  
   - **DFS Code:**
     ```python
     class Solution:
@@ -345,6 +409,7 @@ _Remember strings are immutuable, usually want to convert to lists -> O(n)_
             traverse(root)
             return array
     ```
+  
    - **BFS Code:**
      
      ```python
@@ -767,6 +832,9 @@ For a hash table to be efficient, the load factor (number of entries divided by 
 # General Guide
 
 1. Clarify question
+   
+  - Listen to the question very closely, you'll need all the information for an optimal solution
+    
   - Ask about:
     - Case-sensitive?
     - Number ranges?
@@ -777,28 +845,54 @@ For a hash table to be efficient, the load factor (number of entries divided by 
     - Only positive? Negative? Increasing? Non-Decreasing?
     - How to handle empty, invalid, or null?
       
-2. Explain Approach
+2. Find Approach
    
   - "Intuitive Approach"
     
     - Analyze time and space complexity
       
     - Brute force is sometimes only solution (backtracking, greedy, etc)
+   
+      - Good indicator for this is the best conceivable runtime
+     
       
   - "Optimized Approach"
     
-    - Probably an entirely different approach. Run through list of data structures, usually:
+    - Probably an entirely different approach, look for unused information
+   
+    - Sometimes you'll only be able to optimize on space (usually an in-place solution), don't discount it
+   
+    - **BUDS:** Bottlenecks, unneccessary work, and duplicated work
+      
+    - Run through list of data structures (specifically ADTs) now are, usually:
       
       1. Hashmaps
-      2. Stacks & Queues (Lists & Doubly-Linked List)
+         
+      2. Stacks & Queues
+         
+         - In Python, stacks are really just lists, but make sure to point out you're using it as a stack
+           
+         - You can use a list as a queue too, but point out that removal time (dequeue) is O(n)
+           
+           - The better data structure here is a doubly-linked list (remember circular array, not worth using though)
+              
       3. Sets / Caches (Memoization)
+         
       4. Heaps / Trees
          
-    - Break down time and space complexity, sometimes you'll only be able to optimize on space (usually an in-place solution)
+         - Will mostly be using binary trees, but make sure to clarify (also clarify between binary tree and BST)
+           
+         - Will mostly use decision trees (N-ary trees) for backtracking
+           
+         - Even rarer, but should understand tries (this is the data structure to use for a phone book)
+           
+         - Remember that heaps are not priority queues, they are used to make priority queues, not equivalent
+         
+    - Break down time and space complexity
     
 3. Pseudocode
    
-   - You can do this while explaining the approach
+   - You can do this while explaining your approach; try to always maintain some communication with interviewer, ask for a short break if needed
      
    - Psuedocode throgh text (like a comment) or whiteboard - Codility has a whiteboard
      
@@ -810,7 +904,7 @@ For a hash table to be efficient, the load factor (number of entries divided by 
 
 5. Coding
    
-   - Prioritize readibility and follow closely to the pseudocode
+   - Prioritize readibility and follow closely to the pseudocode; modularize the code from the beginning
      
    - Try to use helper functions if it simplfies the code, might not need to fill it out in the end
      
