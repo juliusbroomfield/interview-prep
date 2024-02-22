@@ -113,11 +113,11 @@ I. [Algorithms](#algorithms)
      
         - [Uniform-Cost Search & Dijikstra's Algorithm]()
        
+        - [Bellman-Ford]()
+       
         - [A* Search]()
        
       - [APSP]()
-     
-        - [Bellman-Ford]()
        
         - [Floyd-Warshall]()
        
