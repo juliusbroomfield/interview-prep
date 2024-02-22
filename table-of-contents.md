@@ -33,7 +33,7 @@ I. [Algorithms](#algorithms)
     
   - [Searching and Selection Algorithms (Linear)](#searching-and-selection-algorithms)
  
-    - [Binary Search]()
+    - [Binary Search & Ternary Search]()
 
     - [Exponential Search]()
    
@@ -42,6 +42,8 @@ I. [Algorithms](#algorithms)
     - [Boyer - Moore Voting Algorithm]()
    
     - [Median of Medians Search]()
+   
+    - [Divide & Conquer Select]()
    
     - [Quickselect]()
    
@@ -93,7 +95,15 @@ I. [Algorithms](#algorithms)
    
     - [Reverse]()
    
-    - [Merge Sort]()
+    - [Intersection Point]()
+   
+    - [Sorting]()
+   
+      - [Merge Sort]()
+     
+      - [Bubble Sort]()
+     
+      - [Quick Sort]()
    
   - [Graph Algorithms (Including Trees)]()
  
@@ -106,6 +116,8 @@ I. [Algorithms](#algorithms)
       - [Iterative-Deepening Search]()
      
       - [Bidirectional Search]()
+     
+      - [Depth Limited Search]()
      
       - [Hill Climbing]()
      
@@ -151,23 +163,17 @@ I. [Algorithms](#algorithms)
      
       - [Dinic's Algorithm]()
      
-    - [Kosojaru's Algorithm]()
-
-  - [Advanced Searching & Game Theory (Including Backtracking)]()
- 
-    - [Backtracking]()
-   
-    - [Decision Trees]()
-   
-      - [Minimax Algorithm]()
-   
-    - [TSP]()
+    - [Strong Connected Components]()
+     
+      - [Kosojaru's Algorithm]()
 
   - [Math]()
  
     - [Number Theory]()
    
-      - [Permutations & Combinations]()
+      - [Sum of Arithmetic Sequence]()
+   
+      - [Combinatorics]()
      
       - [Euclidean Algorithm]()
 
@@ -190,6 +196,18 @@ I. [Algorithms](#algorithms)
     - [Linear Algebra (Matrices)]()
    
   - [Bit Manipulation]()
+
+  - [Advanced Searching & Game Theory]()
+ 
+    - [Backtracking]()
+   
+      - [Permutations & Combinations]()
+   
+    - [Decision Trees]()
+   
+      - [Minimax Algorithm]()
+   
+    - [TSP]()
        
 II. [Technical Knowledge]()
   
@@ -221,7 +239,7 @@ II. [Technical Knowledge]()
      
       - [d-ary Heaps]()
      
-      - [Fibanocci Heaps]()
+      - [Fibonacci Heap]()
      
     - [Trees]()
    
@@ -234,6 +252,8 @@ II. [Technical Knowledge]()
         - [Red-Black Trees]()
        
         - [Splay Trees]()
+       
+      - [n-ary Trees]()
        
       - [Trie]()
      
@@ -259,3 +279,5 @@ II. [Technical Knowledge]()
  
     
 III. [Behavioral Questions]()
+
+IV. [General Guide]()
