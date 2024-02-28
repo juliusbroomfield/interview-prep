@@ -119,7 +119,15 @@ I. [Algorithms](#algorithms)
      
       - [Depth Limited Search]()
      
-      - [Hill Climbing]()
+      - [Backtracking Search]()
+     
+        - [Permutations & Combinations]()
+     
+      - [Local Search]()
+   
+        - [Hill Climbing]()
+       
+        - [Simulated Annealing]()
      
       - [SSSP]()
      
@@ -142,6 +150,12 @@ I. [Algorithms](#algorithms)
       - [Prim's Algorithm]()
      
       - [Kruskal's Algorithm]()
+     
+    - [Decision Tree]()
+   
+      - [Minimax Algorithm]()
+     
+      - [Expectimax Algorithm]()
      
     - [Topological Order & Sorting]()
    
@@ -196,18 +210,6 @@ I. [Algorithms](#algorithms)
     - [Linear Algebra (Matrices)]()
    
   - [Bit Manipulation]()
-
-  - [Advanced Searching & Game Theory]()
- 
-    - [Backtracking]()
-   
-      - [Permutations & Combinations]()
-   
-    - [Decision Trees]()
-   
-      - [Minimax Algorithm]()
-   
-    - [TSP]()
        
 II. [Technical Knowledge]()
   
@@ -217,11 +219,11 @@ II. [Technical Knowledge]()
    
       - [Strings]()
    
-    - [Hashmaps, Dictionaries, and Hashsets]()
+    - [Hashmaps & Dictionaries]()
    
       - [Hashing]()
      
-      - [Hashsets]()
+      - [Hashsets & Multisets (Bags)]()
      
     - [Disjoint Set]()
    
@@ -273,7 +275,7 @@ II. [Technical Knowledge]()
     
   - [Threading]()
 
-  - [The Internet (Systems & Networks)]()
+  - [Systems & Networks]()
 
   - [System Design]()
  
