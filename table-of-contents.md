@@ -135,7 +135,11 @@ I. [Algorithms](#algorithms)
        
         - [Bellman-Ford]()
        
-        - [A* Search]()
+        - [Informed Search]()
+       
+          - [A* Search]()
+         
+          - [Iterative Deepening A* Search]()
        
       - [APSP]()
        
@@ -151,12 +155,6 @@ I. [Algorithms](#algorithms)
      
       - [Kruskal's Algorithm]()
      
-    - [Decision Tree]()
-   
-      - [Minimax Algorithm]()
-     
-      - [Expectimax Algorithm]()
-     
     - [Topological Order & Sorting]()
    
       - [Kahn's Algorithm]()
@@ -168,6 +166,16 @@ I. [Algorithms](#algorithms)
       - [Hungarian Method]()
      
       - [Blossom Shrinking]()
+     
+    - [Paths, Walks, and Circuits]()
+   
+      - [Hamiltonian Paths]()
+     
+      - [Eulerian Paths]()
+     
+      - [De Brujin Sequences]()
+     
+      - [Knight's Tours]()
 
     - [Network Flow]()
    
@@ -177,17 +185,21 @@ I. [Algorithms](#algorithms)
      
       - [Dinic's Algorithm]()
      
-    - [Strong Connected Components]()
+    - [Strong Connectivity]()
      
       - [Kosojaru's Algorithm]()
+
+      - [2SAT Problem]()
+     
+    - [Bridges and Articulation Points]()
+   
+      - [Tarjan's Algorithm]()
 
   - [Math]()
  
     - [Number Theory]()
    
       - [Sum of Arithmetic Sequence]()
-   
-      - [Combinatorics]()
      
       - [Euclidean Algorithm]()
 
@@ -197,6 +209,32 @@ I. [Algorithms](#algorithms)
      
       - [Fermat’s Little Theorem & Euler’s Theorem]()
      
+    - [Combinatorics]()
+   
+      - [Binomial Coefficients]()
+   
+      - [Catalan Numbers]()
+     
+      - [Fibonacci Numbers]()
+     
+      - [Burnside's Lemma]()
+     
+      - [Cayley's Formula]()
+     
+      - [Inclusion–Exclusion Principle]()
+     
+    - [Game Theory]()
+   
+      - [Decision Tree]()
+     
+        - [Minimax Algorithm]()
+  
+        - [Expectimax Algorithm]()
+     
+      - [Nim Game]()
+     
+      - [Sprague-Grundy Theorem]()
+     
     - [Numerical Methods]()
    
       - [Bisection Method]()
@@ -204,6 +242,10 @@ I. [Algorithms](#algorithms)
       - [Newton's Method]()
    
     - [Geometry]()
+   
+      - [Art Gallery Problem]()
+   
+      - [Convex Hull Problem]
    
     - [Linear Algebra]()
    
