@@ -42,6 +42,8 @@ I. [Algorithms](#algorithms)
     - [Boyer - Moore Voting Algorithm]()
    
     - [Median of Medians Search]()
+
+    - [Pivot Selection]()
    
     - [Divide & Conquer Select]()
    
