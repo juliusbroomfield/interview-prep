@@ -1,4 +1,4 @@
-#Binary Search
+# Binary Search
 
 Calm little algorithm. Searches a sorted array by dividing it in half repeatedly.
 
