@@ -113,15 +113,15 @@ Almost forgot, but quicksort is **neither adaptive nor stable** (there are stabl
 
 Quicksort can use constant space with certain partitioning strategies, specifically with the classic [Hoare]() or [Lomuto]() partition schemes.
 
-###Partition Schemes
+### Partition Schemes
 
-#####Hoare's Partition Scheme
+##### Hoare's Partition Scheme
 1. select a pivot
 2. initialize two pointers - one on the left, one on the right
 3. when the left pointer finds an element greater than the pivot, and the right pointer finds an element less than the pivot, swap
 5. the new partition is where the right pointer crosses over the left, rather than the pivot
 
-#####Lumuto's Partition Scheme
+##### Lumuto's Partition Scheme
 1. select the last element to be the pivot
 2. initialize a single pointer to scan through the array from start to end
 3. elements less than the pivot are moved to the left side, so that by the end, all elements greater or equal to the pivot are on its right
@@ -228,12 +228,12 @@ One of the downsides of [counting sort](), is *what if the range between the sma
 Radix sort fixes that issue by sorting numbers by processing individual digits, using [counting sort]() and [bucket sort]() as subroutines.
 
 
-#####LSD Radix Sort
+##### LSD Radix Sort
 Starts sorting from the least significant digit and progresses towards the most significant digit. 
 
 LSD is typically used with counting sort and is effective for fixed-length integer sorting.
 
-#####MSD Radix Sort
+##### MSD Radix Sort
 Starts from the most significant digit and moves towards the least significant digit. 
 
 MSD is typically used with bucket sort and is efficient in sorting variable-length strings or integers.
