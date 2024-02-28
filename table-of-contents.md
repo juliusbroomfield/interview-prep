@@ -197,17 +197,15 @@ I. [Algorithms](#algorithms)
      
       - [Fermat’s Little Theorem & Euler’s Theorem]()
      
-      - [Bisection Method & Newton's Method]()
-     
-    - [Optimization]()
+    - [Numerical Methods]()
    
-      - [Katasuba Fast Multiplication Algorithm]()
+      - [Bisection Method]()
      
-      - [Fast Fourier Transform]()
+      - [Newton's Method]()
    
     - [Geometry]()
    
-    - [Linear Algebra (Matrices)]()
+    - [Linear Algebra]()
    
   - [Bit Manipulation]()
        
