@@ -11,27 +11,27 @@ I. [Algorithms](#algorithms)
    
     - [Complete Search]()
   
-  - [Sorting Algorithms](#sorting-algorithms)
+  - [Sorting Algorithms](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md)
  
-    - [Bubble Sort & Cocktail Shaker Sort]()
+    - [Bubble Sort & Cocktail Shaker Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#bubble-sort)
       
-    - [Bucket Sort]()
+    - [Bucket Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#bucket-sort)
    
-    - [Counting Sort]()
+    - [Counting Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#counting-sort)
    
-    - [Heap Sort]()
+    - [Heap Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#heap-sort)
    
-    - [Insertion Sort]()
+    - [Insertion Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#insertion-sort)
    
-    - [Radix Sort]()
+    - [Radix Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#radix-sort)
    
-    - [Quicksort]()
+    - [Quicksort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#quicksort)
    
-    - [Merge Sort]()
+    - [Merge Sort](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#merge-sort)
    
-    - [Pancake Sorting]()
+    - [Pancake Sorting](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md#pancake-sort)
     
-  - [Searching and Selection Algorithms (Linear)](#searching-and-selection-algorithms)
+  - [Searching and Selection Algorithms (Linear)](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Searching%20and%20Selection%20Algorithms/search-and-select.md)
  
     - [Binary Search & Ternary Search]()
 
