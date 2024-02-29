@@ -87,8 +87,6 @@ Quicksort is arguably the best comparison-based sorting algorithms _empircally_,
 
 However, the worst case time complexity is $O(n^2)$, although this is only if you continously choose a bad pivot. Using the median of first, middle, and last element (median-of-three) can be more efficient than choosing randomly, but will still result in a $O(n^2)$ runtime.
 
-
-
 Quicksort uses extra memory by design. In most cases the space complexity is $O(\log n)$, but with bad pivots it's $O(n)$.
 
 ```python
@@ -114,6 +112,8 @@ def quick_sort(arr, low = 0, high = None):
 Almost forgot, but quicksort is **neither adaptive nor stable** (there are stable implementations, but require $O(n)$ space).
 
 Quicksort can use constant space with certain partitioning strategies, specifically with the classic [Hoare]() or [Lomuto]() partition schemes.
+
+It's used in [timsort]() as well.
 
 ###Partition Schemes
 
@@ -290,11 +290,11 @@ def bucket_sort(arr):
     return result
 ```
 
-# Pancake Sort
+# Pancake Sorting
 
-Pancake sort is quite different; it involves flipping entire sub-arrays (stacks of pancakes) up to a chosen position, rather than swapping individual elements.
+Pancake sorting is quite different; it involves flipping entire sub-arrays (stacks of pancakes) up to a chosen position, rather than swapping individual elements.
 
-Pancake sorting isn't useless though, it has practical applications in parallel processor networks and is in a few Leetcode questions (I lied I could only find one):
+Pancake sorting isn't useless though, it has practical applications in parallel processor networks and has other applications! (I lied it has no practical applications except for solving this leetcode problem):
 [969. Pancake Sorting](https://leetcode.com/problems/pancake-sorting/description/)
 
 
