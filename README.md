@@ -45,11 +45,7 @@ I. [Algorithms](#algorithms)
 
     - [Pivot Selection]()
    
-    - [Divide & Conquer Select]()
-   
     - [Quickselect]()
-   
-    - [Heapselect]()
    
   - [Array Algorithms (Excluding Sorting)](#array-algorithms)
  

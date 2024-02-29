@@ -85,7 +85,9 @@ It sorts by bringing (does this by swapping) elements less than the pivot to the
 
 Quicksort is arguably the best comparison-based sorting algorithms _empircally_, with an average runtime of $O(n \log n)$. 
 
-However, the worst case time complexity is $O(n)$, although this is only if you continously choose a bad pivot.
+However, the worst case time complexity is $O(n^2)$, although this is only if you continously choose a bad pivot. Using the median of first, middle, and last element (median-of-three) can be more efficient than choosing randomly, but will still result in a $O(n^2)$ runtime.
+
+
 
 Quicksort uses extra memory by design. In most cases the space complexity is $O(\log n)$, but with bad pivots it's $O(n)$.
 
@@ -113,15 +115,15 @@ Almost forgot, but quicksort is **neither adaptive nor stable** (there are stabl
 
 Quicksort can use constant space with certain partitioning strategies, specifically with the classic [Hoare]() or [Lomuto]() partition schemes.
 
-### Partition Schemes
+###Partition Schemes
 
-##### Hoare's Partition Scheme
+#####Hoare's Partition Scheme
 1. select a pivot
 2. initialize two pointers - one on the left, one on the right
 3. when the left pointer finds an element greater than the pivot, and the right pointer finds an element less than the pivot, swap
 5. the new partition is where the right pointer crosses over the left, rather than the pivot
 
-##### Lumuto's Partition Scheme
+#####Lumuto's Partition Scheme
 1. select the last element to be the pivot
 2. initialize a single pointer to scan through the array from start to end
 3. elements less than the pivot are moved to the left side, so that by the end, all elements greater or equal to the pivot are on its right
@@ -184,6 +186,7 @@ def heapsort(iterable):
     # Extract elements from the heap and negate again to restore original values
     return [-heapq.heappop(min_heap) for _ in range(len(min_heap))]
 ```
+Heapsort is good if you want the constant $O(n \log n)$ runtime of algorithms like [merge sort](), without the additional space.
 
 Heapsort is **technically in-place**, but is **not stable**. Standard implementations of heapsort aren't adaptive, but there is [adaptive heapsort]().
 
@@ -227,20 +230,23 @@ One of the downsides of [counting sort](), is *what if the range between the sma
 
 Radix sort fixes that issue by sorting numbers by processing individual digits, using [counting sort]() and [bucket sort]() as subroutines.
 
-
-##### LSD Radix Sort
+#####LSD Radix Sort
 Starts sorting from the least significant digit and progresses towards the most significant digit. 
 
 LSD is typically used with counting sort and is effective for fixed-length integer sorting.
 
-##### MSD Radix Sort
+#####MSD Radix Sort
 Starts from the most significant digit and moves towards the least significant digit. 
 
 MSD is typically used with bucket sort and is efficient in sorting variable-length strings or integers.
 
 Like [counting sort](), radix sort is neither **adaptive or in-place** but it is stable!
 
-The time complexity for both is $O(nk)$ where $k$ is the number of digits.
+The time complexity for both is $O(nk)$ where $k$ is the number of digits. Radix sort (and often [counting sort]()) are better when:
+
+1. Elements have a fixed length or small $k$ value.
+3. Uniform distribution of key values.
+3. Direct comparisons are computationally expensive.
 
 The space complexity is $O(n + k)$.
 
@@ -250,7 +256,7 @@ I had actually never learned bucket sort before.
 
 Bucket sort distributes elements into buckets, then sorts each bucket individually, either using a different sorting algorithm or by recursively applying the bucket sort algorithm.
 
-One advantage of bucket sort, is that its' time complexity can be linear (assuming uniform distribution) $\Omega (n + k)$. 
+One advantage of bucket sort, is that its' time complexity can be linear (assuming close to uniform distribution) $\Omega (n + k)$. 
 
 Its' worst case time complexity is $O(n + k + \frac{n^2}{k} )$ where $k$ is the number of buckets; the worst case space complexity is $O(n+k)$. Its' not **in-place** or **adaptive** either, but it is **stable**.
 
