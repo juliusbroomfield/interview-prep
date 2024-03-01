@@ -232,12 +232,14 @@ One of the downsides of [counting sort](), is *what if the range between the sma
 
 Radix sort fixes that issue by sorting numbers by processing individual digits, using [counting sort]() and [bucket sort]() as subroutines.
 
-#####LSD Radix Sort
+##### LSD Radix Sort
+
 Starts sorting from the least significant digit and progresses towards the most significant digit. 
 
 LSD is typically used with counting sort and is effective for fixed-length integer sorting.
 
-#####MSD Radix Sort
+##### MSD Radix Sort
+
 Starts from the most significant digit and moves towards the least significant digit. 
 
 MSD is typically used with bucket sort and is efficient in sorting variable-length strings or integers.
