@@ -21,6 +21,21 @@ This is the same method for any $N$, except for $N = 2$ where using a comparison
 
 A general time complexity formula for $N$- sum is $O(n ^ {(N - 1)})$; the space complexity will always be $O(1)$, although this might depend on the sorting algorithm used.
 
+[283. Move Zeroes](https://leetcode.com/problems/move-zeroes/description/)
+
+[11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+
+[80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
+
+[1163. Last Substring in Lexicographical Order](https://leetcode.com/problems/last-substring-in-lexicographical-order/description/)
+
+[809. Expressive Words](https://leetcode.com/problems/expressive-words/description/)
+
+[2105. Watering Plants II](https://leetcode.com/problems/watering-plants-ii/description/)
+
+
+
+
 
 # Sliding Window
 
