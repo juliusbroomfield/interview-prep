@@ -30,7 +30,7 @@ It does technically have a runtime of $O(\log_{3}n)$, however it still has an up
 
 # Exponential Search
 
-An binary search implementation for unbounded arrays or sequences. It first finds an upper bound, and then performs binary search on that bound $(0 \dots i)$.
+An binary search implementation for unbounded arrays or sequences. It first finds an upper bound, and then performs binary search on that bound $[0 \dots i]$.
 
 Time Complexity: $O(\log i)$ where $i$ is where the index would be of the target
 
@@ -120,7 +120,7 @@ This is a pivot selection method for [quick select](), but shouldn't be used for
 
 4. The median of medians is our pivot.
 
-This median searching algorithm is approximate, but optimal, as the median is guaranteed to be between the $30$th and $70$th percentiles.
+This median searching algorithm is approximate, but optimal, as the median is guaranteed to be between the $30^{th}$ and $70^{th}$ percentiles.
 
 It has a runtime of $\Theta (n)$, and uses auxillary space of $O (\log n)$.
 
@@ -139,6 +139,6 @@ You can find the $k^{th}$ smallest by building a [heap](), removing $k$ elements
 
 It outperforms quickselect when $k$ is small, with a runtime of $\Theta (n + k \log n)$.
 
-##### Merge-select
+### Merge-select
 
 I learned about a [divide-and-conquer]() algorithm based on [merge sort]() for finding the $i^{th}$ order statistic, but was not able to find much about it online. 
