@@ -72,4 +72,4 @@ The algorithm iterates through the array from the last element to the first, swa
 4. Move one position to the left (towards the start of the array) and repeat the selection and swap process.
 5. Continue until you reach the beginning of the array.
 
-Fisher-Yates has a time complexity of  $\Theta (1)$ and space complexity of $O(1)$ and was included for giggles.
+Fisher-Yates has a time complexity of  $\Theta (n)$ and space complexity of $O(1)$ and was included for giggles.
