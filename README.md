@@ -45,7 +45,7 @@ I. [Algorithms](#algorithms)
 
     - [Pivot Selection]()
    
-    - [Quickselect]()
+    - [Selection Problem]()
    
   - [Array Algorithms (Excluding Sorting)](#array-algorithms)
  
@@ -68,8 +68,8 @@ I. [Algorithms](#algorithms)
       - [Rabin-Karp]()
      
       - [Finite Automata]()
-     
-    - [Multi-dimensional Pattern Matching]()
+
+      - [Aho-Corsack]()
      
     - [Palidromes]()
    
