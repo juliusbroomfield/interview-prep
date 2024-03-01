@@ -10,7 +10,7 @@ Typically used in reducing a $O(n^2)$ runtime to $O(n)$.
 
 I'll go in-depth on this technique using the $N$- sum problem.
 
-###$ N$- sum
+### $ N$- sum
 
 In the original $2$- Sum problem, you're supposed to find two numbers that add up to a target. 
 In $N$- sum you're supposed to find $N$ elements that add up to a target.
