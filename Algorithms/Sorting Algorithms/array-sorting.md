@@ -38,9 +38,10 @@ It still has the same qualities: **stable, in-place, adaptive**, time complexity
 
 Another intuitive sort. Finds the smallest (or largest) element starting from a left bound and swaps it with the first unsorted element right of that bound.
 
-Selection sort is similar to bubble sort in its performance (exactly the same). So:
+Selection sort is similar to bubble sort in its performance (exactly the same).
 
 Time Complexity: $O(n^2)$ | $\Omega(n)$
+
 Space Complexity: $O(1)$
 
 As well as being: **adaptive, in-place, and stable**
@@ -52,6 +53,7 @@ Insertion sort builds the final sorted array one item at a time. You have a righ
 Insertion sort is still like the other sorts covered so:
 
 Time Complexity: $O(n^2)$ | $\Omega(n)$
+
 Space Complexity: $O(1)$
 
 As well as being: **adaptive, in-place, and stable**
@@ -79,7 +81,7 @@ def insertion_sort(arr):
 
 # QuickSort
 
-Quicksort divides the array around a pivot (there are a couple [methods]() for choosing good pivots) and recursively sorts the sub-arrays.
+Quicksort divides the array around a pivot and recursively sorts the sub-arrays.
 
 It sorts by bringing (does this by swapping) elements less than the pivot to the left of it, and items greater to the right.
 
@@ -115,15 +117,15 @@ Quicksort can use constant space with certain partitioning strategies, specifica
 
 It's used in [timsort]() as well.
 
-###Partition Schemes
+### Partition Schemes
 
-#####Hoare's Partition Scheme
+##### Hoare's Partition Scheme
 1. select a pivot
 2. initialize two pointers - one on the left, one on the right
 3. when the left pointer finds an element greater than the pivot, and the right pointer finds an element less than the pivot, swap
 5. the new partition is where the right pointer crosses over the left, rather than the pivot
 
-#####Lumuto's Partition Scheme
+##### Lumuto's Partition Scheme
 1. select the last element to be the pivot
 2. initialize a single pointer to scan through the array from start to end
 3. elements less than the pivot are moved to the left side, so that by the end, all elements greater or equal to the pivot are on its right
