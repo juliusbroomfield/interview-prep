@@ -4,9 +4,10 @@ There are $n - m$ pattern checks, so the runtime is $O(nm)$ and $\Omega (n)$.
 
 # Boyer-Moore
 
-Similar to the brute force approach, except after a mismatch (using brute force), we'll shift a certain amount of spaces according to a last occurance table table
+Similar to the brute force approach, except after a mismatch, we'll shift a certain amount of spaces according to a last occurance table.
 
-**Last Occurrence Table** - tells how far to shift based on mismatched character. It is a form of preprocessing, does not depend on text.
+#### Last Occurrence Table
+Tells us how far to shift based on mismatched character. It is a form of preprocessing, does not depend on text.
 
 ```python
 def lastOccuranceTable(pattern):
@@ -18,19 +19,13 @@ def lastOccuranceTable(pattern):
 	return table
 ```
 
-How to use *last occurance table*?
+How to use **last occurance table**?
 
 1. Shift starting index from left to right, but match pattern right to left
 2. **Mismatch?**
-\
-**Case 1:** Character is not in pattern
-**Solution:** Shift all the way past
-\
-**Case 2:** Character is in pattern, but occurs before current index
-**Solution:** Match Character in Text with Character in Pattern
-\
-**Case 3:** Character has already been past
-**Solution:** Shift right by 1
+	- **Case 1:** If character is not in pattern, shift all the way past
+	- **Case 2:** If character is in pattern, but occurs before current index, then match character in text with character in pattern
+	- **Case 3:** If the character has already been past, then shift right by 1
 
 Time Complexity: If searching for a single pattern, it runs in $\Omega (n)$. If searching for a all patterns, it's $\Omega(\frac nm + m)$. Otherwise it runs in $\Theta (nm)$.
 
