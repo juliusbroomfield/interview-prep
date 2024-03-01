@@ -77,7 +77,7 @@ I. [Algorithms](#algorithms)
 
     - [Anagrams]()
    
-    - [String Processing with DP]()
+    - [DP String Processing]()
    
       - [String Alignment]()
      
@@ -100,22 +100,22 @@ I. [Algorithms](#algorithms)
       - [Merge Sort]()
      
       - [Bubble Sort]()
-     
-      - [Quick Sort]()
    
   - [Graph Algorithms (Including Trees)]()
  
     - [Search Algorithms]()
    
-      - [Depth-First Search]()
+      - [Uninformed Search]()
+   
+        - [Depth-First Search]()
+       
+        - [Breadth-First Search]()
+       
+        - [Iterative-Deepening Search]()
      
-      - [Breadth-First Search]()
-     
-      - [Iterative-Deepening Search]()
-     
+        - [Depth Limited Search]()
+       
       - [Bidirectional Search]()
-     
-      - [Depth Limited Search]()
      
       - [Backtracking Search]()
      
@@ -126,6 +126,8 @@ I. [Algorithms](#algorithms)
         - [Hill Climbing]()
        
         - [Simulated Annealing]()
+       
+        - [Genetic Algorithms]()
      
       - [SSSP]()
      
@@ -177,7 +179,7 @@ I. [Algorithms](#algorithms)
 
     - [Network Flow]()
    
-      - [Floyd Fulkerson's Method]()
+      - [Ford Fulkerson's Method]()
      
       - [Edmond Karp's Algorithm]()
      
