@@ -1,5 +1,3 @@
-# L
-
 First, I'll briefly talk about the **brute force** approach, which is done aligning the pattern against the text.
 
 There are $n - m$ pattern checks, so the runtime is $O(nm)$ and $\Omega (n)$.
