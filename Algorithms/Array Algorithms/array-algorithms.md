@@ -1,4 +1,4 @@
-There aren't that many algorithms in this selection since most of the interesting ones are in the [sorting]() or [searching]() ones.
+There aren't that many algorithms in this section since most of the interesting ones are in the [sorting]() or [searching]() ones.
 
 # Two Pointers 
 
