@@ -24,17 +24,59 @@ For integers, the hash is the integer itself. Keep this in mind when making a ha
 ## Hashmaps
 In Python, **hashmaps** are **dictionaries**.
 
-- Access: Average $(O(1))$, worst-case $(O(n))$ with poor hash function
+- **Set/Update (`dict[key] = value`):**
+  - **Time Complexity:** $O(1)$
+  - Sets or updates the value of `key` in the dictionary.
 
-- Insertion: Average $(O(1))$, worst-case $(O(n))$
+- **Get (`dict[key]`):**
+  - **Time Complexity:** $O(1)$
+  - Retrieves the value associated with `key`.
 
-- Deletion: Average $(O(1))$, worst-case $(O(n))$
+- **Delete (`del dict[key]`):**
+  - **Time Complexity:** $O(1)$
+  - Removes `key` and its associated value from the dictionary.
 
-- Search (key): Average $(O(1))$, worst-case $(O(n))$
+- **Clear (`dict.clear()`):**
+  - **Time Complexity:** $O(n)$
+  - Removes all items from the dictionary.
 
 ```python
 hashmap = {'name' : id}
 ```
+
+**Dictionaries have other methods as well:**
+
+- **Copy (`dict.copy()`):**
+  - **Time Complexity:** $O(n)$
+  - Returns a shallow copy of the dictionary.
+
+- **Keys (`dict.keys()`):**
+  - **Time Complexity:** $O(1)$
+  - Returns a view of the dictionary's keys.
+
+- **Values (`dict.values()`):**
+  - **Time Complexity:** $O(1)$
+  - Returns a view of the dictionary's values.
+
+- **Items (`dict.items()`):**
+  - **Time Complexity:** $O(1)$
+  - Returns a view of the dictionary's items (key-value pairs).
+
+- **Pop (`dict.pop(key[, default])`):**
+  - **Time Complexity:** $O(1)$
+  - Removes the item with `key` and returns its value or `default` if `key` is not found.
+
+- **Popitem (`dict.popitem()`):**
+  - **Time Complexity:** $O(1)$
+  - Removes and returns an arbitrary (key, value) pair from the dictionary.
+
+- **Update (`dict.update([other])`):**
+  - **Time Complexity:** $O(n)$ (where $n$ is the number of items in `other`)
+  - Updates the dictionary with the key/value pairs from `other`, overwriting existing keys.
+
+- **Get (`dict.get(key[, default])`):**
+  - **Time Complexity:** $O(1)$
+  - Returns the value for `key` if `key` is in the dictionary, else `default`.
 
 ### Chainmaps
 Chainsmaps are used to combine multiple dictionaries into a single, updateable view.
@@ -136,7 +178,7 @@ B = set(['1', '2', '3', '4', '5'])
   - **Description:** Adds all elements from $B$ to the set $A$.
   - **Time Complexity:** $O(n)$  
 
-#### Frozen Sets
+### Frozen Sets
 Frozen sets are immutable and static, and allow only query operations on their elements, not inserts or deletions. 
 
 They can be used as dictionary keys or as elements of another set, which isn’t possible with regular sets.
