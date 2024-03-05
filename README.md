@@ -83,7 +83,7 @@ I. [Algorithms](#algorithms)
      
       - [Longest Common Subsequence]()
      
-      - [Spell Checker]()
+      - [Edit Distance]()
 
   - [Linked List Algorithms]()
  
