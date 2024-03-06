@@ -200,9 +200,60 @@ Without the obstacles this problem turns into an [inclusion-exclusion]() problem
 
 Let's look at matrix chain multiplication, another algorithm covered in CS3510, which also happens to be a 2D DP problem by design.
 
-## Unique Paths
+Say we want to multiply three matrices $X$, $Y$ , and $Z$. We could do it like $(XY)Z$ or like $X(YZ)$. 
+
+Which way we do the multiplication doesn’t affect the final outcome but it can affect the running time
+to compute it. 
+
+For example, say $X$ is 100 × 20, $Y$ is 20 × 100, and $Z$ is 100 × 20. So, the end result will be a 100 × 20 matrix. If we multiply using the usual algorithm, then to multiply an ℓ× m matrix by an m × n matrix takes time O(ℓmn). 
+
+So in this case, which is better, doing $(XY)Z$ or $X(YZ)$?
+
+Doing $(XY)Z$ will take $100 · 20 · 100 + 100 · 100 · 20 = 4 · 105$ operations.\
+Doing $X(YZ)$ will take $20 · 100 · 20 + 100 · 20 · 20 = 8 · 104$ operations. So $X(YZ)$ is more efficient. But what if we have $n$ matrices?
+
+Now we have a DP problem we can solve!
+
+The Matrix Product Parenthesization problem is as follows: 
+Suppose we need to multiply a series of matrices: $A_1$ × $A_2$ × $A_3$ $×. . .×$ $A_n$. Given the dimensions of these matrices $(m_0, m_1), . . . ,(mn−1, mn)$, what is the best way to parenthesize them, assuming for simplicity that standard matrix multiplication is to be used (to multiple matrices $a × b$ and $b × c$ we need $O(abc)$ time)?
+
+a) Identify the subproblems
+- What are all the different ways your recurisve algorithm can call itself?
+
+b) Choose a memoization data structure
+- Find a data structure that can store _every_ subproblems in step (a).
+
+c) Identify dependencies
+- Except for the base cases, every subproblem depends on other subproblems - which ones?
+
+d) Find a good evaluation order
+- Order the subproblems so that each one comes _after_ the subproblems it depends on.
+
+e) Analyze space and running time
+- The summed running times of all possible subproblems is the total running time.
+
+f) Write down the algorithm.
 
 ## Longest Increasing Subsequence
+
+Last (for the 2D DP section) we'll take a look at longest increasing subsequence, which is another pretty popular DP problem.
+
+a) Identify the subproblems
+- What are all the different ways your recurisve algorithm can call itself?
+
+b) Choose a memoization data structure
+- Find a data structure that can store _every_ subproblems in step (a).
+
+c) Identify dependencies
+- Except for the base cases, every subproblem depends on other subproblems - which ones?
+
+d) Find a good evaluation order
+- Order the subproblems so that each one comes _after_ the subproblems it depends on.
+
+e) Analyze space and running time
+- The summed running times of all possible subproblems is the total running time.
+
+f) Write down the algorithm.
 
 # Knapsacks
 
@@ -210,6 +261,15 @@ Let's look at matrix chain multiplication, another algorithm covered in CS3510, 
 
 ## Unbounded Knapsack
 
-{Floyd Warshall, Edit Distance, Largest Common Subsequence}
+---
 
-
+### All DP Problems
+a) [Fibonacci Sequence]()
+b) [Coin Change II]()
+c) [Unique Paths II]()
+d) [Matrix Chain Multiplication]()
+e) [Longest Increasing Subsequence]()
+f) [String Alignment]()
+g) [Edit Distance]()
+h) [Largest Common Subsequence]()
+i) [Floyd Warshall]()
