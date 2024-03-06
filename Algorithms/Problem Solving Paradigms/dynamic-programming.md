@@ -263,7 +263,7 @@ f) Write down the algorithm.
 
 ---
 
-## All DP Problems
+## All Dynamic Programming Problems
 **a)** [Fibonacci Sequence]()\
 **b)** [Coin Change II]()\
 **c)** [Unique Paths II]()\
