@@ -263,13 +263,13 @@ f) Write down the algorithm.
 
 ---
 
-### All DP Problems
-a) [Fibonacci Sequence]()\
-b) [Coin Change II]()\
-c) [Unique Paths II]()\
-d) [Matrix Chain Multiplication]()\
-e) [Longest Increasing Subsequence]()\
-f) [String Alignment]()\
-g) [Edit Distance]()\
-h) [Largest Common Subsequence]()\
-i) [Floyd Warshall]()
+## All DP Problems
+**a)** [Fibonacci Sequence]()\
+**b)** [Coin Change II]()\
+**c)** [Unique Paths II]()\
+**d)** [Matrix Chain Multiplication]()\
+**e)** [Longest Increasing Subsequence]()\
+**f)** [String Alignment]()\
+**g)** [Edit Distance]()\
+**h)** [Largest Common Subsequence]()\
+**i)** [Floyd Warshall]()
