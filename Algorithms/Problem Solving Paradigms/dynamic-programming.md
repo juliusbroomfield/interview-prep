@@ -39,6 +39,8 @@ e) Analyze space and running time
 
 f) Write down the algorithm.
 
+There are more algorithms (specifically DP string algorithms) covered in [DP - String Processing](); there are even more DP algorithms integrated into other sections which I'll list at the end of this file.
+
 ---
 # Top-Down Dynamic Programming
 
