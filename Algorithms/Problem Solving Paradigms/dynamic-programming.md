@@ -306,7 +306,7 @@ def BoundedKnapsack(B, weights, values, n = len(weights)):
 return k[B, n]
 ```
  
-## Unbounded Knapsack (With Repetition
+## Unbounded Knapsack (With Repetition)
 
 Our unbounded knapsack is the same as our previous knapsack problem, except now we can repeatedly choose items, there are essentially an unlimited amount of each item.
 
