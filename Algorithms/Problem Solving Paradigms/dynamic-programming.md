@@ -1,4 +1,5 @@
 # Dynamic Programming
+
 Dynamic Programming is mainly used to solve optimization and counting problems (i.e. a problem that wants you to "minimize this" or "maximize that" or "count the ways to do that"). 
 
 Dynamic Programming tackles problem by identifying overlapping subproblems (if they aren't overlapping, [divide and conquer]() might be a better approach), and tackling them one by one, smallest first, using the answers to small problems to help figure out larger ones, until the whole lot of them is solved.
@@ -198,7 +199,7 @@ Without the obstacles this problem turns into an [inclusion-exclusion]() problem
 
 ## Matrix Chain Multiplication
 
-Let's look at matrix chain multiplication, another algorithm covered in CS3510, which also happens to be a 2D DP problem by design.
+Let's look at matrix chain multiplication, another algorithm covered in CS3510, another DP problem.
 
 Say we want to multiply three matrices $X$, $Y$ , and $Z$. We could do it like $(XY)Z$ or like $X(YZ)$. 
 
@@ -257,10 +258,89 @@ f) Write down the algorithm.
 
 # Knapsacks
 
-## 0/1 Knapsack & Bounded Knapsack
+## Bounded Knapsack (Without Repetition)
 
-## Unbounded Knapsack
+Both $0/1$ Knapsack and Fractional Knapsack fit into this category.
 
+You have a knapsack with total weight capacity $B$. You have $n$ objects specified by:\
+integer weights: $w_{1}, \dots, w_{n}$\
+integer values: $v_{1}, \dots, w_{n}$
+
+Our goal is to fill the knapsack up with the maximum total value, but with a total weight still less than $B$
+
+a) Identify the subproblems
+- Define $\texttt{knapsack}(b, j)$ as the maximum total value achievable by some subset of items from ${1, \dots , j}$ with the total weight not exceeding $b$
+
+b) Choose a memoization data structure
+- It looks we're storing two features in the state, the total weight $b$ and the total amount of items $j$, so it makes sense to use a $2D$ array
+
+c) Identify dependencies
+- If adding the $j^{th}$ element exceeds total weight $b$ or we're simply not considering it in the optimal subset, then we can recurse to the $j - 1$ case. However, if $j$ is in the optimal subset, then we can add $value_{j}$ to $k(b, j)$ and reduce the total budget by $w_{j}$
+
+d) Find a good evaluation order
+- Start from the base cases where $b = 0$ or $j = 0$, and iteratively calculate the values up to $\texttt{knapsack}(B, n)$ - similar to the [Unique Paths II]() problem
+
+e) Analyze space and running time
+- Space Complexity: As mentioned before, we're working in a $2D$ array with side lengths $B$ and $n$ where $n$ is the number of items. So our space complexity is $O(nB)$
+- Time Complexiy: Similarly, we can see as the solution iterates through the $2D$ array there'll be $nB$ iterations, resulting in a time complexity of $\Theta (nB)$.
+  
+f) Write down the algorithm.
+```python
+def BoundedKnapsack(B, weights, values, n = len(weights)):
+  k = [[0 for _ in B] for _ in weights]
+
+  for j in range(1, n + 1):
+    for b in range(1, B + 1):
+      if weights[j - 1] > b:
+        k[b, j] = k[b, j - 1]
+
+      else:
+        k[b, j] = max(
+            values[j - 1] + l[b - weights[j - 1], j - 1],
+            k[b, j - 1]
+        )
+
+  return k[b, j - 1]
+
+
+return k[B, n]
+```
+ 
+## Unbounded Knapsack (With Repetition
+
+Our unbounded knapsack is the same as our previous knapsack problem, except now we can repeatedly choose items, there are essentially an unlimited amount of each item.
+
+Let's skip straight to step (f), hopefully the code is well documented enough.
+
+```python
+def UnboundedKnapsack(B, weights, values):
+    # Initialize the number of items.
+    n = len(weights)
+    # Initialize the DP array to store the maximum value that can be achieved
+    # with each capacity from 0 to B. This array represents the solution space
+    # for subproblems of different capacities.
+    k = [0 for _ in range(B + 1)]
+
+    # Iterate over all possible capacities from 1 to B to fill the DP array.
+    for b in range(1, B + 1):
+        # Try each item to see if it can be added to the knapsack of capacity 'b'.
+        for j in range(n):
+            # If the current item's weight is less than or equal to the current capacity 'b',
+            # consider including this item.
+            if weights[j] <= b:
+                # Update the DP array for the current capacity 'b'.
+                # The value for capacity 'b' is the maximum of the current value at 'b',
+                # and the value of adding this item (values[j]) to the best solution
+                # for the remaining capacity (b - weights[j]).
+                # This reflects the unbounded nature of the problem, where items can be reused:
+                # 'k[b - weights[j]] + values[j]' essentially means considering the current item
+                # again for the new remaining capacity after including it once.
+                k[b] = max(k[b], k[b - weights[j]] + values[j])
+
+    # The last element of the DP array contains the maximum value that can be achieved
+    # with the total capacity B.
+    return k[B]
+```
 ---
 
 ## All Dynamic Programming Problems
