@@ -286,24 +286,25 @@ e) Analyze space and running time
   
 f) Write down the algorithm.
 ```python
-def BoundedKnapsack(B, weights, values, n = len(weights)):
-  k = [[0 for _ in B] for _ in weights]
+def BoundedKnapsack(B, weights, values)):
+  n = len(weights
+  k = [[0 for _ in (B + 1)] for _ in range(n + 1)]
 
   for j in range(1, n + 1):
     for b in range(1, B + 1):
       if weights[j - 1] > b:
-        k[b, j] = k[b, j - 1]
+        k[b][j] = k[b][j - 1]
 
       else:
-        k[b, j] = max(
-            values[j - 1] + l[b - weights[j - 1], j - 1],
-            k[b, j - 1]
+        k[b][j] = max(
+            values[j - 1] + l[b - weights[j - 1]][j - 1],
+            k[b][j - 1]
         )
 
-  return k[b, j - 1]
+  return k[b][j - 1]
 
 
-return k[B, n]
+return k[B][n]
 ```
  
 ## Unbounded Knapsack (With Repetition)
