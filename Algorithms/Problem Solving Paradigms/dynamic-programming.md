@@ -287,7 +287,7 @@ e) Analyze space and running time
 f) Write down the algorithm.
 ```python
 def BoundedKnapsack(B, weights, values)):
-  n = len(weights
+  n = len(weights)
   k = [[0 for _ in (B + 1)] for _ in range(n + 1)]
 
   for j in range(1, n + 1):
