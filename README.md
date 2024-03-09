@@ -311,7 +311,11 @@ II. [Technical Knowledge]()
    
     - [Bloom Filter]()
    
-  - [Python Behaviors]()
+  - [Languages]()
+    
+    - [Python]()
+      
+    - [C]()   
     
   - [Threading]()
 
