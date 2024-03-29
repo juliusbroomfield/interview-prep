@@ -5,7 +5,7 @@ I'll go over the different graph representations though.
 ### Adjacency Matrix
 Adjacency matrices are better for dense graphs where the number of edges is close to the number of vertices squared.
 
-It's more efficient for algorithms that frequently check if there is an edge between two vertices, such as [Floyd-Warshall](), [Prim's](), [Seidel's], or [Warshall's](), or in [graph coloring]() and [clique detection]().
+It's more efficient for algorithms that frequently check if there is an edge between two vertices, such as [Floyd-Warshall](), [Prim's](), [Seidel's](), or [Warshall's](), or in [graph coloring]() and [clique detection]().
 
 - Add/Remove Edge: $O(1)$
 
