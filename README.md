@@ -223,6 +223,8 @@ I. [Algorithms](#algorithms)
      
       - [Inclusion–Exclusion Principle]()
      
+      - [Josephus Problem]()
+     
     - [Game Theory]()
    
       - [Decision Tree]()
