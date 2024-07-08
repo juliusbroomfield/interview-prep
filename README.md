@@ -1,15 +1,15 @@
 # Table of Contents
 I. [Algorithms](#algorithms)
 
-  - [Problem Solving Paradigms]()
+  - [Problem Solving Paradigms](https://github.com/juliusbroomfield/interview-prep/tree/main/Algorithms/Problem%20Solving%20Paradigms)
  
-    - [Divide & Conquer]()
+    - [Divide & Conquer](https://github.com/juliusbroomfield/interview-prep/blob/main/Algorithms/Problem%20Solving%20Paradigms/divide-and-conquer.md)
    
-    - [Dynamic Programming]()
+    - [Dynamic Programming](https://github.com/juliusbroomfield/interview-prep/blob/main/Algorithms/Problem%20Solving%20Paradigms/dynamic-programming.md)
 
-    - [Greedy]()
+    - [Greedy](https://github.com/juliusbroomfield/interview-prep/blob/main/Algorithms/Problem%20Solving%20Paradigms/greedy.md)
    
-    - [Complete Search]()
+    - [Complete Search](https://github.com/juliusbroomfield/interview-prep/blob/main/Algorithms/Problem%20Solving%20Paradigms/complete-search.md)
   
   - [Sorting Algorithms](https://github.com/JuliustheCreator/interview-prep/blob/main/Algorithms/Sorting%20Algorithms/array-sorting.md)
  
